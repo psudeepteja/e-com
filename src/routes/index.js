@@ -4,6 +4,8 @@ import {
 } from "react-router-dom";
 import loadable from "@loadable/component";
 import RootLayout from "../layout/RootLayout";
+import Order from "../pages/order";
+import Login from "../pages/login";
 
 
 const Home = loadable(() =>
@@ -23,9 +25,9 @@ const Pdp = loadable(() =>
 const Cart = loadable(() =>
 	import(/* webpackChunkName: "Cart", webpackPrefetch: true */ "../pages/cart")
 );
-// const Cart = loadable(() =>
-// 	import(/* webpackChunkName: "Cart", webpackPrefetch: true */ "../pages/cart")
-// );
+const Error = loadable(() =>
+	import(/* webpackChunkName: "Cart", webpackPrefetch: true */ "../pages/error")
+);
 
 
 
@@ -33,7 +35,7 @@ export const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <RootLayout />,
-		// errorElement: <ErrorPage />,
+		errorElement: <Error />,
 		children: [
 			{
 				path: "/",
@@ -44,16 +46,24 @@ export const router = createBrowserRouter([
 				element: <Search />,
 			},
 			{
-				path: "plp/:categoryName/:categoryId",
+				path: "/products/category/:categoryId",
 				element: <Plp />,
 			},
 			{
-				path: "pdp/:productId",
+				path: "/products/category/:categoryId/:productId",
 				element: <Pdp />,
 			},
 			{
-				path: "cart",
+				path: "/cart",
 				element: <Cart />,
+			},
+			{
+				path: "/order-confirmation",
+				element: <Order />,
+			},
+			{
+				path: "/login",
+				element: <Login />,
 			},
 		],
 	},

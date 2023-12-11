@@ -15,7 +15,7 @@ export default function Footer() {
         }}
       >
         <Typography variant="body2" color="textSecondary">
-          © {new Date().getFullYear()} My MUI App. All rights reserved.{' '}
+          © {new Date().getFullYear()} Sudeep Teja. All rights reserved.{' '}
           <Link href="/privacy-policy" color="inherit">
             Privacy Policy
           </Link>{' '}
